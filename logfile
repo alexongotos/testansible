@@ -1,0 +1,31 @@
+2019-02-13 16:17:15.213 GMT [3096] LOG:  listening on IPv6 address "::1", port 5432
+2019-02-13 16:17:15.213 GMT [3096] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-02-13 16:17:15.214 GMT [3096] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-02-13 16:17:15.237 GMT [3097] LOG:  database system was shut down at 2019-01-10 15:25:18 GMT
+2019-02-13 16:17:15.241 GMT [3096] LOG:  database system is ready to accept connections
+2019-02-13 16:17:48.471 GMT [3343] LOG:  could not send data to client: Broken pipe
+2019-02-13 16:17:48.471 GMT [3343] STATEMENT:  SELECT t.oid, t.typname, t.typsend, t.typreceive, t.typoutput, t.typinput,
+	       coalesce(d.typelem, t.typelem), coalesce(r.rngsubtype, 0), ARRAY (
+	  SELECT a.atttypid
+	  FROM pg_attribute AS a
+	  WHERE a.attrelid = t.typrelid AND a.attnum > 0 AND NOT a.attisdropped
+	  ORDER BY a.attnum
+	)
+	FROM pg_type AS t
+	LEFT JOIN pg_type AS d ON t.typbasetype = d.oid
+	LEFT JOIN pg_range AS r ON r.rngtypid = t.oid OR (t.typbasetype <> 0 AND r.rngtypid = t.typbasetype)
+	
+	
+2019-02-13 16:17:48.471 GMT [3343] FATAL:  connection to client lost
+2019-02-13 16:17:48.471 GMT [3343] STATEMENT:  SELECT t.oid, t.typname, t.typsend, t.typreceive, t.typoutput, t.typinput,
+	       coalesce(d.typelem, t.typelem), coalesce(r.rngsubtype, 0), ARRAY (
+	  SELECT a.atttypid
+	  FROM pg_attribute AS a
+	  WHERE a.attrelid = t.typrelid AND a.attnum > 0 AND NOT a.attisdropped
+	  ORDER BY a.attnum
+	)
+	FROM pg_type AS t
+	LEFT JOIN pg_type AS d ON t.typbasetype = d.oid
+	LEFT JOIN pg_range AS r ON r.rngtypid = t.oid OR (t.typbasetype <> 0 AND r.rngtypid = t.typbasetype)
+	
+	
