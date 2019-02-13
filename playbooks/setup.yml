@@ -5,4 +5,5 @@
     - vars/main.yml
 
   roles:
-    - '{role: "HashNuke.elixir-stack", action: "setup"}'
+    - "HashNuke.elixir-stack"
+    -  task: "setup"
