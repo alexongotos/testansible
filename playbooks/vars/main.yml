@@ -1,4 +1,4 @@
 ---
 app_name: testansible
-repo_url: ""
+repo_url: "https://github.com/elay12/testansible.git"
 app_port: 3001
